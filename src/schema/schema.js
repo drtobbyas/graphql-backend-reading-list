@@ -85,7 +85,7 @@ const Query = new GraphQLObjectType({
     book: {
       type: BookType,
       args: {
-        id: {type: GraphQLString},
+        id: {type: GraphQLID},
       },
       resolve(parent, args) {
         return Book.findById(args.id)
@@ -134,7 +134,7 @@ const Mutation = new GraphQLObjectType({
           type: GraphQLNonNull(GraphQLString)
         },
         authorId: {
-          type: GraphQLNonNull(GraphQLString)
+          type: GraphQLNonNull(GraphQLID)
         },
       },
       resolve(parent, args) {
